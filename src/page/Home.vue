@@ -15,7 +15,7 @@
     </van-swipe>
     <!-- 菜单 -->
     <van-grid :column-num="3">
-      <van-grid-item icon="like-o" text="收藏" />
+      <van-grid-item icon="like-o" text="收藏11" />
       <van-grid-item icon="clock-o" text="历史订单" />
       <van-grid-item icon="balance-o" text="资金管理" />
       <van-grid-item icon="setting-o" text="设置" />
@@ -26,6 +26,8 @@
     <van-skeleton title avatar :row="3" class="skeleton-box"/>
     <van-skeleton title avatar :row="3" class="skeleton-box"/>
     <van-skeleton title avatar :row="3" class="skeleton-box"/>
+    <div @click="play"> 点击播放 </div>
+    <div id="r-web-play-wrap"></div>
     <!-- 底部 -->
     <Footer :msg="copyright"></Footer>
   </div>
@@ -56,6 +58,24 @@ export default {
   },
   computed: {
     ...mapState(['copyright'])
+  },
+  methods:{
+    play(){
+      // this.storeToFile('rrweb测试数据',localStorage.getItem('rrweb_data'));
+      let events = localStorage.getItem('rrweb_data') ? window.eventsList.concat(JSON.parse(localStorage.getItem('rrweb_data'))) : window.eventsList;
+      console.log('events-------',events)
+      console.log('document.getElementById("r-web-play-wrap")',document.getElementById("r-web-play-wrap"))
+      window.rrwebPlayer && new window.rrwebPlayer({
+        target: document.getElementById("r-web-play-wrap"), // 可以自定义 DOM 元素
+        // 配置项
+        props: {
+          events,
+          width:375,
+          height:812,
+          unpackFn: rrweb.unpack,
+        },
+      });
+    },
   }
 };
 </script>
@@ -91,6 +111,11 @@ export default {
   }
   .skeleton-box {
     margin-top: 15px;
+  }
+  #r-web-play-wrap{
+    height: 400px;
+    margin-bottom: 100px;
+    border: 1px solid red;
   }
 }
 </style>
