@@ -1,5 +1,5 @@
 {
-  "name": "Minimal PWA",
+  "name": "vue_cli_3_mobile_vm_demo",
   "short_name": "PWA Demo",
   "description": "The app that helps you understand PWA",
   "display": "standalone",
@@ -8,20 +8,20 @@
   "background_color": "#313131",
   "icons": [
     {
-      "src": "icon/lowres.webp",
-      "sizes": "48x48",
-      "type": "image/webp"
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     },
     {
-      "src": "./icon/lowres",
+      "src": "icon/appIcon.jpg",
       "sizes": "48x48"
     },
     {
-      "src": "./icon/hd_hi.ico",
+      "src": "icon/appIcon.jpg",
       "sizes": "72x72 96x96 128x128 256x256"
     },
     {
-      "src": "./icon/hd_hi.svg",
+      "src": "icon/appIcon.jpg",
       "sizes": "72x72"
     }
   ]
